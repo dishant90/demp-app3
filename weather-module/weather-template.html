@@ -1,0 +1,44 @@
+<div class="container">
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Check Weather
+    </button>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Check weather</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="model_body_id">
+                    <form id="weather-input-form">
+                        <div class="form-group">
+                            <label for="zipCode">Enter zip code:</label>
+                            <input type="text" class="form-control" name="zipCode" id="zipCode"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Enter country code</label>
+                            <input type="password" class="form-control" name="country" id="country"/>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox"> Are you happy ?</label>
+                        </div>
+                        <button type="button" class="btn btn-default" onclick="loadWeatherData();">Submit</button>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
