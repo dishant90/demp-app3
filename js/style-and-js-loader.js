@@ -1,18 +1,19 @@
 (function () {
+    "use strict";
     function ignoreCache(actualPath) {
-        return actualPath + '/abc=' + Math.random();
+        return actualPath + '?abc=' + Math.random();
     }
 
     // function to loading css and js dynamically
     function loadjscssfile(filename, filetype, forceReload = false) {
         filename = forceReload ? ignoreCache(filename) : filename;
         if (filetype == "js") { //if filename is a external JavaScript file
-            let fileref = document.createElement('script');
+            var fileref = document.createElement('script');
             fileref.setAttribute("type", "text/javascript");
             fileref.setAttribute("src", filename);
         }
         else if (filetype == "css") { //if filename is an external CSS file
-            let fileref = document.createElement("link");
+            var fileref = document.createElement("link");
             fileref.setAttribute("rel", "stylesheet");
             fileref.setAttribute("type", "text/css");
             fileref.setAttribute("href", filename);
@@ -30,11 +31,12 @@
 
 
     //First load css, order matters as per normal css rules
+    //Forced reload not required for other frameworks just our site files
     loadjscssfile("https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css", "css");
 
     //Load all your site specific css after
-    loadjscssfile("css/style-1.css", "css");
-    loadjscssfile("css/style-2.css", "css");
+    loadjscssfile("css/style-1.css", "css", true);
+    loadjscssfile("css/style-2.css", "css", true);
 
     //Then load the third party JS files, JS loading order matters, so jquery must be loaded before bootstrap.
     loadjscssfile("https://code.jquery.com/jquery-3.3.1.slim.min.js", "js");
